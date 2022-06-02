@@ -1,0 +1,26 @@
+name = "gtk"
+description = "Page using W3Css"
+license = "MIT"
+homepage = "https://github.com/getzola/hyde"
+# The minimum version of Zola required
+min_version = "0.4.0"
+# An optional live demo URL
+demo = ""
+
+# Any variable there can be overridden in the end user `config.toml`
+# You don't need to prefix variables by the theme name but as this will
+# be merged with user data, some kind of prefix or nesting is preferable
+# Use snake_casing to be consistent with the rest of Zola
+[extra]
+
+# The theme author info: you!
+[author]
+name = "Jakub Gutowski"
+homepage = "https://jakubgutowski.gitlab.io/site/"
+
+# If this is porting a theme from another static site engine, provide
+# the info of the original author here
+[original]
+author =  "w3schools"
+homepage = "https://www.w3schools.com/w3css"
+repo = "https://github.com/vitorlans/w3-css"

@@ -1,0 +1,87 @@
+# The URL the site will be built for
+base_url = "http://jakubgutowski.github.io/skolka"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+render_emoji = true
+
+
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = false
+
+[extra]
+# Put all your custom variables here
+title = "Lorem Ipsum"
+name = "Ziomki Gliwice"
+
+[[ extra.menu ]]
+name = "Instruktorzy"
+icon = "fa fa-user"
+path = "#team"
+weight = 10
+
+[[ extra.menu ]]
+name = "Gdzie Uczymy"
+icon = "fa fa-map-marker"
+path = "#where"
+weight = 20
+
+[[ extra.menu ]]
+name = "Oświadczenie"
+icon = "fa fa-file-text"
+path = "files/Oswiadczenie-szkolka-deskorolkowa.pdf"
+weight = 30
+
+[[ extra.menu ]]
+name = "Cennik"
+icon = "fa fa-money"
+path = "#pricing"
+weight = 40
+
+[[ extra.team ]]
+title = "CEO"
+name = "Mateusz"
+path = "matijju.jpg"
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+weight = 20
+
+[[ extra.team ]]
+title = "CEO"
+name = "Wiśnia"
+path = "wisnia.jpg"
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+weight = 10
+
+[[ extra.team ]]
+title = "CEO"
+name = "Gutek"
+path = "gutek.png"
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+weight = 30
+
+[[ extra.photos ]]
+alt = "photo1"
+path = "harrison-kugler.jpg"
+weight = 10
+
+[[ extra.photos ]]
+alt = "photo2"
+path = "jan-kopriva-phiVN2ciH3I-unsplash.jpg"
+weight = 20
+
+[[ extra.photos ]]
+alt = "photo3"
+path = "samm-escobar-ZfUyQD6_Pwk-unsplash.jpg"
+weight = 30
+
+[[ extra.photos ]]
+alt = "photo4"
+path = "patrick-hendry-9-74QMXc6Sc-unsplash.jpg"
+weight = 40
