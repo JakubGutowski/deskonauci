@@ -24,14 +24,16 @@ weight = 30
 [[ extra.team ]]
 title = "CTO"
 name = "Gutek"
-path = "gutek.png"
+path = "gutek.jpg"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+phone = "+48 507 294 683"
 weight = 10
 
 [[ extra.team ]]
 title = "COO"
 name = "Wiśnia"
 path = "wisnia.jpg"
+phone = "+48 507 294 683"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
 weight = 20
 
