@@ -74,4 +74,20 @@ name = "Hala Arena"
 path = "DSC0954.jpg"
 description = "Doskonałe miejsce do rozpoczęcia przygody z deskorolką"
 weight =30
+
+[[ extra.items ]]
+item = "Deskorolka"
+
+[[ extra.items ]]
+item = "Buty z płaską podeszwą"
+
+[[ extra.items ]]
+item = "Kask"
+
+[[ extra.items ]]
+item = "Ochraniacze"
+
+[[ extra.items ]]
+item = "Woda, ręcznik, krem UV"
+
 +++

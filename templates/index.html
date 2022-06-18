@@ -273,16 +273,33 @@ a > svg {
 </div>
 
 <!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:64px 16px" id="contact">
-  <h3 class="w3-center">KONTAKT</h3>
-  <p class="w3-center w3-large w3-text-red">Namiary na nas  </p>
-  <div style="margin-top:48px">
-    <p><i class="fa fa-map-marker w3-text-red fa-fw w3-xxlarge w3-margin-right"></i> Gliwice</p>
-    <p><a href="tel:+48507294683"><i class="fa fa-phone w3-text-red fa-fw w3-xxlarge w3-margin-right"></i> Tel: +48 507294683</a></p>
-    {#<p><i class="fa fa-envelope w3-text-red fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>#}
-    <br>
+<div class="w3-container w3-center w3-whtie" style="padding:64px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      {% set section = get_section(path="section/_index.md") %}
+      <h2>CO ZABRAĆ NA ZAJĘCIA:</h2>
+      <div class="w3-padding">
+        <ul class="w3-ul w3-large w3-left-align">
+        {% for item in section.extra.items %}
+          <li class="w3-hover-red">{{ item.item }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="images/bringwith.jpg" alt="Buildings" width="700" height="394">
+    </div>
   </div>
 </div>
+<div class ="w3-container w3-left-align w3 w3-light-grey" style="padding:64px 16px" id="contact">
+  <p class="w3-large w3-text-red"><strong>Kontakt</strong></p>
+    <div style="margin-top:48px w3-left">
+      <p><i class="fa fa-map-marker w3-text-red fa-fw w3-xxlarge w3-margin-right"></i> Gliwice</p>
+      <p><a href="tel:+48507294683"><i class="fa fa-phone w3-text-red fa-fw w3-xxlarge w3-margin-right"></i> Tel: +48 507294683</a></p>
+      {#<p><i class="fa fa-envelope w3-text-red fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>#}
+      <br>
+    </div>
+  </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
