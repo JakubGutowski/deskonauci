@@ -6,24 +6,24 @@ sort_by = "weight"
 [[ extra.about ]]
 title = "Kreatywność"
 icon = "fa fa-bomb"
-description = "Rozwój kreatywności ponieważ deskorolka to więcej niż sport"
+description = "Rozwój kreatywności ponieważ deskorolka to więcej niż sport. Uczy inaczej postrzegać przestrzeń miejską oraz ją wykorzystywać."
 weight = 10
 
 [[ extra.about ]]
 title = "Wiek"
 icon = "fa fa-users"
-description = "Nauczamy wszystkich w wieku szkolnym oraz dorosłych"
+description = "Nauczamy wszystkich w każdym wieku jedynym ograniczeniem jest komunikatywność i chęci kursanta"
 weight = 20
 
 [[ extra.about ]]
 title = "Gdzie"
 icon = "fa fa-map-marker"
-description = "Uczymy na skateparkach w Gliwicach oraz na pumptracku"
+description = "Uczymy głównie na skateparkach oraz na pumptracku lecz naszym celem jest nauczenie korzystania z całego miasta"
 weight = 30
 
 [[ extra.team ]]
 title = "CTO"
-name = "Gutek"
+name = "Jakub Gutowski"
 path = "gutek.jpg"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
 phone = "+48 507 294 683"
@@ -31,7 +31,7 @@ weight = 10
 
 [[ extra.team ]]
 title = "COO"
-name = "Wiśnia"
+name = "Łukasz Wiśniewski"
 path = "wisnia.jpg"
 phone = "+48 507 294 683"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
