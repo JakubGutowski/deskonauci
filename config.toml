@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "http://jakubgutowski.github.io/skolka"
+base_url = "http://ziomkigliwice.pl"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -18,7 +18,7 @@ highlight_code = false
 
 [extra]
 # Put all your custom variables here
-title = "Lorem Ipsum"
+title = "Ziomki Gliwice"
 name = "Ziomki Gliwice"
 
 [[ extra.menu ]]

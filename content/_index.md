@@ -33,7 +33,7 @@ weight = 10
 title = "COO"
 name = "Łukasz Wiśniewski"
 path = "wisnia.jpg"
-phone = "+48 507 294 683"
+phone = "+48 517 186 466"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
 weight = 20
 
