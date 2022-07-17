@@ -1,3 +1,4 @@
 User-agent: *
+Disallow:
 Allow: /
-Sitemap: http://ziomkigliwice.pl/sitemap.xml
+Sitemap: http://deskonauci.pl/sitemap.xml

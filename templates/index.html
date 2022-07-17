@@ -8,61 +8,23 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fo<nts.googleapis.com/css2?family=Montserrat:wght@200;300;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ get_url(path="main.css") | safe }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-
-body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-
-body, html {
-  height: 100%;
-  line-height: 1.8;
-}
-
-
-/* Full height image header */
-.bgimg-1 {
-  background-position: 50% 50%;
-  background-size: cover;
-  background-image: url("images/DSC0952.jpg");
-  min-height: 100%;
-}
-
-.bg_zglogo {
-  background-position: 98% 90%;
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-image: url("images/zg_w.svg");
-  max-height: 200%;
-  min-width: auto;
-}
-
-
-.w3-bar .w3-button {
-  padding: 16px;
-}
-
-a > svg {
-  width: 1.5em;
-  height: auto;
-  vertical-align:-25%;
-}
-
-</style>
 </head>
 <body>
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-  <a href="#home" class="w3-bar-item w3-button w3-wide"  style="font-size: 1.2em;">
+  <div class="w3-bar my-secondary-1 w3-card" id="myNavbar">
+  <a href="#home" class="w3-bar-item w3-button w3-wide my-text-primary-2"  style="font-size: 1em; font-weight:900">
     {{ macros::zg_logo() }}
     {{config.extra.name}}</a>
     {% if config.extra.menu %}
     <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
+    <div class="w3-right w3-hide-small w3-display-bottom ">
       {% for val in config.extra.menu %}
-      <a href={{val.path}} class="w3-bar-item w3-button w3-display-center"><i class="{{val.icon}}"></i> {{val.name}}  </a>
+      <a href={{val.path}} class="w3-bar-item w3-button w3-display-bottom my-text-primary-2" style="height: auto;font-weight:600"><i class="{{val.icon}}"></i> {{val.name}}  </a>
       {% endfor %}
     </div>
     {% endif %}
@@ -85,26 +47,26 @@ a > svg {
 {% endif %}
 
 <!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+<header class="bgimg-1 w3-display-container" id="home">
   <div class="w3-display-bottomleft w3-text-white w3-left-align" style="padding:40px">
     
-    <span class="w3-jumbo w3-hide-small w3-opacity-min w3-black w3-padding-large"><strong>Ziomki Gliwice</strong></span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium"><strong>Ziomki Gliwice</strong></span><br>
-    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity-min w3-hover-opacity-off">Szkółka deskorolki</a></p>
+    <span class="w3-jumbo w3-hide-small my-secondary-1 my-text-primary-2 w3-padding-large"><strong>Deskonauci</strong></span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium"><strong>Deskonauci</strong></span><br>
+    <p><a href="#about" class="w3-button my-white w3-padding-large w3-large w3-margin-top w3-opacity-min w3-hover-opacity-off">Gliwicka Szkóła Deskorolki</a></p>
   </div>
 </header>
 
 {# About section #}
 {% if section.extra.about %}
 <div class="w3-container" style="padding:64px 16px" id="about">
-  <h3 class="w3-center">Ziomki Gliwice</h3>
+  <h3 class="w3-center">Deskonauci</h3>
   <p class="w3-center w3-large">Główne cechy</p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <i class="w3-text-black"></i>
     {% for val in section.extra.about %}
     <div class="w3-third">
-      <i class="{{val.icon}} w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large w3-text-red"><strong>{{val.title}}</strong></p>
+      <i class="{{val.icon}} w3-margin-bottom w3-jumbo w3-center my-text-primary-1"></i>
+      <p class="w3-large my-text-secondary-1"><strong>{{val.title}}</strong></p>
       <p>{{val.description}}</p>
     </div>
     {% endfor %}
@@ -113,7 +75,7 @@ a > svg {
 {% endif %}
 
 <!-- News Section -->
-<div class="w3-container w3-light-grey" style="padding:64px 16px">
+<div class="w3-container my-light-grey" style="padding:64px 16px">
   <div class="w3-row-padding">
     <div class="w3-col m6">
       {% set section = get_section(path="section/_index.md") %}
@@ -132,7 +94,7 @@ a > svg {
 
 <!-- Team Section -->
 <div class="w3-container" style="padding:64px 16px" id="team">
-  <h3 class="w3-center">Ziomki Gliwice</h3>
+  <h3 class="w3-center">Deskonauci</h3>
   <p class="w3-center w3-large">Instruktorzy</p>
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
     {% for member in section.extra.team %}
@@ -143,7 +105,7 @@ a > svg {
             <h3>{{member.name}}</h3>
             {#<p class="w3-opacity">{{member.title}}</p>#}
             {#<p>{{member.description}}</p>#}
-            <p><button class="w3-button w3-light-grey w3-block" id="{{member.name}}" onclick="phoneNumber('{{member.name}}', '{{member.phone}}')"><a><i class="fa fa-phone"></i><span> Kontakt</span></a></button></p>
+            <p><button class="w3-button my-light-grey w3-block" id="{{member.name}}" onclick="phoneNumber('{{member.name}}', '{{member.phone}}')"><a><i class="fa fa-phone"></i><span> Kontakt</span></a></button></p>
           </div>
         </div>
       </div>
@@ -152,7 +114,7 @@ a > svg {
 </div>
 
 <!-- Work Gallery Section -->
-<div class="w3-container w3-dark-grey" style="padding:64px 16px" id="gallery">
+<div class="w3-container my-grey" style="padding:64px 16px" id="gallery">
   <h3 class="w3-center">Galeria</h3>
   <p class="w3-center w3-large">Parę kadrów z naszych zajęć</p>
   <div class="w3-row-padding" style="margin-top:64px">
@@ -184,7 +146,7 @@ a > svg {
         <p class="w3-padding">Skateparki oraz pumptracki są najlepszym miejscem do nabywania nowych umiejętności w 
           kontrolowanych warunkach. Naszym celem jest by po nabyciu tych umiejętności wykorzystać je w 
           przestrzeni miejskiej dojeżdżając do szkoły, pracy czy podczas sesji deskorolkowej.</p>
-        <h4 class="w3-text-red"><strong>{{ val.name }}</strong></h4>
+        <h4 class="my-text-secondary-1"><strong>{{ val.name }}</strong></h4>
         <p>{{ val.description }}</p>
       </div>
       <div class="w3-col m6">
@@ -194,10 +156,10 @@ a > svg {
   </div>
 {% endfor %}
   <div class="w3-center w3-container w3-section w3-large w3-text-grey w3-display-bottommiddle" style="width:100%; margin-top:3em">
-    <div class="w3-left w3-hover-text-red" onclick="plusDivs(-1)">&#10094;</div>
-    <div class="w3-right w3-hover-text-red" onclick="plusDivs(1)">&#10095;</div>
+    <div class="w3-left my-hover-text-primary-1" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right my-hover-text-primary-1" onclick="plusDivs(1)">&#10095;</div>
     {% for val in section.extra.places %}
-    <i class="fa fa-map-marker w3-large demo w3-transparent w3-hover-text-red w3-padding" onclick="currentDiv({{loop.index}})"></i>
+    <i class="fa fa-map-marker w3-large demo w3-transparent my-hover-text-primary-1 w3-padding" onclick="currentDiv({{loop.index}})"></i>
     {% endfor%}
   </div>
 
@@ -226,21 +188,21 @@ a > svg {
       x[i].style.display = "none";  
     }
     for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" w3-text-red", "");
+      dots[i].className = dots[i].className.replace(" my-text-secondary-1", "");
     }
     x[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " w3-text-red";
+    dots[slideIndex-1].className += " my-text-secondary-1";
   }
   </script>
   {% endif %}
 <!-- Pricing Section -->
-<div class="w3-container w3-center w3-dark-grey" style="padding:64px 16px" id="pricing">
+<div class="w3-container w3-center my-grey" style="padding:64px 16px" id="pricing">
   <h3>CENNIK</h3>
   <p class="w3-large">Rodzaje prowadzonych zajęć</p>
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-auto" style="max-width: 600px;">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-red w3-xlarge w3-padding-48">Indywidualne</li>
+      <ul class="w3-ul my-white w3-hover-shadow">
+        <li class="my-secondary-1 my-text-primary-1 w3-xxlarge w3-padding-48" style="font-weight: 800;">Indywidualne</li>
         <li class="w3-padding-16">Czas: <b>60min</b></li>
         <li class="w3-padding-16">Indywidualny plan nauczania</li>
         <li class="w3-padding-16">Wybór terminów</li>
@@ -249,7 +211,7 @@ a > svg {
           <h2 class="w3-wide">100 zł</h2>
           <span class="w3-opacity">za godzinę</span>
         </li>
-        <li class="w3-light-grey w3-padding-24">
+        <li class="my-light-grey w3-padding-24">
           <a href="#team"><button class="w3-button w3-black w3-padding-large">Instruktorzy</button></a>
         </li>
       </ul>
@@ -266,12 +228,12 @@ a > svg {
       <div class="w3-padding">
         <ul class="w3-ul w3-large w3-left-align">
         {% for item in section.extra.items %}
-          <li class="w3-hover-red">{{ item.item }}</li>
+          <li class="my-hover-primary-2">{{ item.item }}</li>
         {% endfor %}
         </ul>
         <hr>
-        <p class=" w3-left-align w3-padding-left"><i class="fa fa-asterisk w3-text-red w3-"></i> Nie masz dechy i kasku a chcesz spróbować? Daj nam znać a pożyczymy sprzęt na pierwsze zajęcia.</p>
-        <p class=" w3-left-align w3-padding-left"><i class="fa fa-exclamation w3-text-red w3-large"></i> Podpisane <a class="w3-hover-text-red" href="files/Oswiadczenie-szkolka-deskorolkowa.pdf">oświadczenie</a>.</p>  
+        <p class=" w3-left-align w3-padding-left"><i class="fa fa-asterisk my-text-secondary-1"></i> Nie masz dechy i kasku a chcesz spróbować? Daj nam znać a pożyczymy sprzęt na pierwsze zajęcia.</p>
+        <p class=" w3-left-align w3-padding-left"><i class="fa fa-exclamation my-text-secondary-1 w3-large"></i> Podpisane <a class="my-hover-text-primary-2" href="files/Oswiadczenie-szkolka-deskorolkowa.pdf">oświadczenie</a>.</p>  
       </div>
     </div>
     <div class="w3-col m6">
@@ -279,23 +241,19 @@ a > svg {
     </div>
   </div>
 </div>
-<div class ="w3-container w3-left-align w3 w3-light-grey" style="padding:64px 16px" id="contact">
-  <p class="w3-large w3-text-red"><strong>Kontakt</strong></p>
+<div class ="w3-container w3-left-align w3 my-light-grey" style="padding:64px 16px" id="contact">
+  <p class="w3-xxlarge my-text-secondary-1"><strong>Kontakt</strong></p>
     <div style="margin-top:48px w3-left">
-      <p><i class="fa fa-map-marker w3-text-red fa-fw w3-xxlarge w3-margin-right"></i> Gliwice</p>
-      <p><a href="tel:+48507294683"><i class="fa fa-phone w3-text-red fa-fw w3-xxlarge w3-margin-right"></i> Tel: +48 507294683</a></p>
-      <p><a href="mailto:ziomkigliwice@gmail.com"><i class="fa fa-envelope w3-text-red fa-fw w3-xxlarge w3-margin-right"> </i> Email: ziomkigliwice@gmail.com</a></p>
+      <p><i class="fa fa-map-marker my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"></i><strong> Gliwice</strong></p>
+      <p><a href="tel:+48507294683"><i class="fa fa-phone my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"></i><strong> Tel: +48 507294683</strong></a></p>
+      <p><a href="mailto:deskonauci@gmail.com"><i class="fa fa-envelope my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"> </i><strong> Email: deskonauci@gmail.com</strong></a></p>
       <br>
     </div>
   </div>
 
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 bg_zglogo">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Do początku</a>
-  <div class="w3-xlarge w3-section">
-    {#<i class="fa fa-facebook-official w3-hover-opacity"></i>#}
-    <a href="https://www.instagram.com/ziomkigliwice/" class="w3-hover-text-red"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-  </div>
+<footer class="w3-center my-secondary-1 w3-padding-64 bg_zglogo">
+  <a href="#home" class="w3-button my-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Do początku</a>
   <p>Powered by 
     <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-red">w3.css</a> and 
     <a href="https://www.getzola.org" title="zola" target="_blank" class="w3-hover-text-red">zola</a>

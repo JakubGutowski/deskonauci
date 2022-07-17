@@ -1,5 +1,5 @@
 +++
-title = "Legenda ZG"
+title = "Deskonauci"
 sort_by = "weight"
 
 [ extra ]
@@ -28,14 +28,6 @@ path = "gutek.jpg"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
 phone = "+48 507 294 683"
 weight = 10
-
-[[ extra.team ]]
-title = "COO"
-name = "Łukasz Wiśniewski"
-path = "wisnia.jpg"
-phone = "+48 517 186 466"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
-weight = 20
 
 [[ extra.photos ]]
 alt = "photo1"

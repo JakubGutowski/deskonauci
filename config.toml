@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "http://ziomkigliwice.pl"
+base_url = "http://deskonauci.pl"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -18,8 +18,8 @@ highlight_code = false
 
 [extra]
 # Put all your custom variables here
-title = "Ziomki Gliwice"
-name = "Ziomki Gliwice"
+title = "Szkoła Deskonautów"
+name = "Deskonauci"
 
 [[ extra.menu ]]
 name = "Instruktorzy"
@@ -47,41 +47,7 @@ weight = 40
 
 [[ extra.team ]]
 title = "CEO"
-name = "Mateusz"
-path = "matijju.jpg"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
-weight = 20
-
-[[ extra.team ]]
-title = "CEO"
-name = "Wiśnia"
-path = "wisnia.jpg"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
-weight = 10
-
-[[ extra.team ]]
-title = "CEO"
 name = "Gutek"
 path = "gutek.png"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
 weight = 30
-
-[[ extra.photos ]]
-alt = "photo1"
-path = "harrison-kugler.jpg"
-weight = 10
-
-[[ extra.photos ]]
-alt = "photo2"
-path = "jan-kopriva-phiVN2ciH3I-unsplash.jpg"
-weight = 20
-
-[[ extra.photos ]]
-alt = "photo3"
-path = "samm-escobar-ZfUyQD6_Pwk-unsplash.jpg"
-weight = 30
-
-[[ extra.photos ]]
-alt = "photo4"
-path = "patrick-hendry-9-74QMXc6Sc-unsplash.jpg"
-weight = 40
