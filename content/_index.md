@@ -25,7 +25,7 @@ weight = 30
 title = "CTO"
 name = "Jakub Gutowski"
 path = "gutek.jpg"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+description = "Na deskorolce jeżdzę od 2003 roku. Zaczynałem jak większość, koledzy ze starszej klasy jeździli i było to ekstra. Większość sztuczek nauczyłem na naszym placu Krakowskim wtedy jeszcze ze starymi przeszkodami. Dzięki deskorolce nauczyłem się cierpliwości koniecznej do opanowania nowych tricków oraz kreatywnego myślenia by wykorzystać przeszkody na skateparku a następnie miasto do wyrażania swojej interpretacji deskorolki. Instruktorem Polish Skate Federation zostałem w 2022 by upewnić się że to co ja chcę przekazać innym jest na odpowiednim poziomie i wartościowe. Deskorolka jest zajawką, stylem życia, sportem w dodatku olimpijskim. Na pewno jest sztuką podobną do tańca czy muzyki, nie musisz być naj... by wyrażać siebie . Ja jako instruktor chcę nauczać jak używać deskorolki jako instrument by czerpać radość z jazdy oraz przeżywać to wszystko co dodatkowo daje deskorolka."
 phone = "+48 507 294 683"
 weight = 10
 

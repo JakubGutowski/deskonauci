@@ -1,9 +1,9 @@
 +++
-title = "Wreszcie ruszamy!"
+title = "Rozpoczynamy nauczanie"
 description = "jak wyżej"
 
 
-date = 2022-05-30
+date = 2022-07-17
 
 weight = 0
 
@@ -18,4 +18,4 @@ template = "page.html"
 [extra]
 +++
 
-Jest nam niezmiernie miło poinformować że szkółka prowadzona prze **Ziomki Gliwice** jest OTWARTA 💣
+Jest nam niezmiernie miło poinformować że szkółka **Deskonautów** jest OTWARTA 💣. Zapraszamy na zajęcia z jazdy na **deskorolce** chętnie nauczymy również jazdy na Longboardach Cruiserach i Surfskate. 

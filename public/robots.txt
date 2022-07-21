@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: http://deskonauci.pl/sitemap.xml
+Sitemap: https://www.deskonauci.pl/sitemap.xml

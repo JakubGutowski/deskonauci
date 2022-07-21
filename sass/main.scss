@@ -7,6 +7,9 @@
 
 // As hex codes */
 
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;700;900&display=swap');
+
 $color-primary-0: #FFD557;	// Main Primary color */
 $color-primary-1: #FFBF00;
 $color-primary-2: #FFC515;
@@ -54,12 +57,22 @@ $rgba-secondary-2-4: rgba(101,104,104,1);
 
 body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
+h3 {
+  font-weight: 900;
+}
+
 body, html {
   height: 100%;
   line-height: 1.8;
 }
 
+img {
+  border-radius: 8px;
+}
 
+.w3-round-large > img {
+  border-radius: 8px 8px 0 0;
+}
 /* Full height image header */
 .bgimg-1 {
   background-position: 50% 50%;
@@ -118,7 +131,7 @@ a > svg {
 
 .my-pirmary-2, .my-hover-primary-2:hover{
     color:#000!important;
-    background-color: $color-primary-2;
+    background-color: $color-primary-2!important;
 }
 
 .my-text-primary-0,.my-hover-text-primary-0:hover{
