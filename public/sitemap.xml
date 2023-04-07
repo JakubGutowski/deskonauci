@@ -4,10 +4,14 @@
         <loc>https://www.deskonauci.pl/</loc>
     </url>
     <url>
-        <loc>https://www.deskonauci.pl/section/</loc>
+        <loc>https://www.deskonauci.pl/news/</loc>
     </url>
     <url>
-        <loc>https://www.deskonauci.pl/section/first-post/</loc>
+        <loc>https://www.deskonauci.pl/news/first-post/</loc>
         <lastmod>2022-07-17</lastmod>
+    </url>
+    <url>
+        <loc>https://www.deskonauci.pl/news/sezon2023/</loc>
+        <lastmod>2023-04-07</lastmod>
     </url>
 </urlset>
