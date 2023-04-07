@@ -18,4 +18,4 @@ template = "page.html"
 [extra]
 +++
 
-W tym roku zima ❄️ długo nie odpuszcza ale czas już wrócić na deskorolkę 🛹 lub zacząć z nią przygodę. Dlatego zaczynamy zajęcia indywidualne w każdy słoneczny *poniedziałek*. Zaczynamy po Świętach czyli *17.04.2023* 
+W tym roku zima ❄️ długo nie odpuszcza ale czas już wrócić na deskorolkę 🛹 lub zacząć z nią przygodę. Dlatego zaczynamy zajęcia indywidualne w każdy słoneczny ☀️ *poniedziałek*. Zaczynamy po Świętach czyli *17.04.2023* 📅 w godzinach popołudniowych. Do zobaczenia na skateparkach 👊. 
