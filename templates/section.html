@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block innerbody %}
+<div class="w3-container" style="padding:64px 16px" id="test">
+{% if section.toc %}
+    <ul>
+    {% for h1 in section.toc %}
+        <li>
+            <p>{{ h1.title }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+
+{% endblock innerbody %}

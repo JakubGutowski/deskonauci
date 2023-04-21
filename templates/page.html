@@ -1,68 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>{% block title %}{{ config.title }}{% endblock title %}</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+{% extends "base.html" %}
 
-body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-
-body, html {
-  height: 100%;
-  line-height: 1.8;
-}
-
-
-/* Full height image header */
-.bgimg-1 {
-  background-position: 50% -20%;
-  background-size: cover;
-  background-image: url("images/_DSC0947.jpg");
-  min-height: 100%;
-}
-
-.w3-bar .w3-button {
-  padding: 16px;
-}
-</style>
-</head>
-<body>
-
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide"><strong>{{config.extra.name}}</strong></a>
-    {% if config.extra.menu %}
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      {% for val in config.extra.menu %}
-      <a href={{val.path}} class="w3-bar-item w3-button"><i class="{{val.icon}}"></i> {{val.name}}</a>
-      {% endfor %}
-    </div>
-    {% endif %}
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
+{% block innerbody %}
+{{ super() }}
+<div class="w3-container" style="padding:64px 16px" id="test"><p>KON DUPI</p>
+  {% if page.toc %}
+  <ul>
+  {% for h1 in page.toc %}
+      <li>
+          <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+          {% if h1.children %}
+              <ul>
+                  {% for h2 in h1.children %}
+                      <li>
+                          <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                      </li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      </li>
+  {% endfor %}
+  </ul>
+{% endif %}
 </div>
 
-{% if config.extra.menu %}
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  {% for val in config.extra.menu %}
-  <a href={{val.path}} onclick="w3_close()" class="w3-bar-item w3-button">{{val.name}}</a>
-  {% endfor %}
-</nav>
-{% endif %}
 
-</body>
-</html>
+{% endblock innerbody %}
+
+<div><p>KON DUPI ZE HEJ</p></div>
