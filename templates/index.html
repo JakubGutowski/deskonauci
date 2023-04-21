@@ -13,14 +13,14 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar my-secondary-1 w3-card" id="myNavbar">
-  <a href="#home" class="w3-bar-item w3-button w3-wide my-text-primary-2 my-hover-primary-2"  style="font-size: 1em; font-weight:900">
+  <a href="{{config.base_url}}/#home" class="w3-bar-item w3-button w3-wide my-text-primary-2 my-hover-primary-2"  style="font-size: 1em; font-weight:900">
     {{ macros::zg_logo() }}
     {{config.extra.name}}</a>
     {% if config.extra.menu %}
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small w3-display-bottom ">
       {% for val in config.extra.menu %}
-      <a href={{val.path}} class="w3-bar-item w3-button w3-display-bottom my-text-primary-2 my-hover-primary-2" style="height: auto;font-weight:600"><i class="{{val.icon}}"></i> {{val.name}}  </a>
+      <a href={{config.base_url}}/{{val.path}} class="w3-bar-item w3-button w3-display-bottom my-text-primary-2 my-hover-primary-2" style="height: auto;font-weight:600"><i class="{{val.icon}}"></i> {{val.name}}  </a>
       {% endfor %}
     </div>
     {% endif %}
@@ -161,7 +161,7 @@
     <div class="w3-right my-hover-text-primary-1" onclick="plusDivs(1)">&#10095;</div>
     {% for val in section.extra.places %}
     <i class="fa fa-map-marker w3-large demo w3-transparent my-hover-text-primary-1 w3-padding" onclick="currentDiv({{loop.index}})"></i>
-    {% endfor%}
+    {% endfor %}
   </div>
 
 </div>
