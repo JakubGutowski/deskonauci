@@ -1,0 +1,116 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE html>
+<html>
+  {% block head %}
+  <head>
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ get_url(path="main.css") | safe }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>   
+  {% endblock head %}
+
+<body>
+{% block navbar %}
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar my-secondary-1 w3-card" id="myNavbar">
+    <a href="{{config.base_url}}/#home" class="w3-bar-item w3-button w3-wide my-text-primary-2 my-hover-primary-2"  style="font-size: 1em; font-weight:900">
+      {{ macros::zg_logo() }}
+      {{config.extra.name}}</a>
+      {% if config.extra.menu %}
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small w3-display-bottom ">
+        {% for val in config.extra.menu %}
+        <a href={{config.base_url}}/{{val.path}} class="w3-bar-item w3-button w3-display-bottom my-text-primary-2 my-hover-primary-2" style="height: auto;font-weight:600"><i class="{{val.icon}}"></i> {{val.name}}  </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right my-text-primary-2 w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  {% if config.extra.menu %}
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block my-pirmary-2 w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Zwiń ×</a>
+    {% for val in config.extra.menu %}
+    <a href={{val.path}} onclick="w3_close()" class="w3-bar-item w3-button">{{val.name}}</a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+{% endblock navbar%}
+
+{% block innerbody %}
+
+{% endblock innerbody %}
+
+<!-- Footer -->
+<footer class="w3-center my-secondary-1 w3-padding-64 bg_zglogo">
+  <a href="#home" class="w3-button my-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Do początku</a>
+  <p>Powered by 
+    <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-red">w3.css</a> and 
+    <a href="https://www.getzola.org" title="zola" target="_blank" class="w3-hover-text-red">zola</a>
+  </p>
+  <p><i class="fa fa-terminal"></i> <a href="https://jakubgutowski.gitlab.io/site/" title="Jakub Gutowski" target="_blank" class="w3-hover-text-red">Jakub Gutowski</a></p>
+  <p><a onclick="onClickPP(this)" title="polityka prywatności" target="_blank" class="w3-small w3-text-grey w3-opacity w3-hover-text-red">polityka prywatności</a></p>
+
+</footer>
+
+<div id="modal_pp" class="w3-modal w3-black " onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64 ">
+    <h3 class="w3-xxlarge w3-left-align">Polityka Prywatności</h3>
+    <p class="w3-left-align w3-large">TLDR:</p>
+    <ul class="w3-left-align">
+      Odwiedzający wiedz że:
+      <li>Nie zbieramy żadnych danych osobowych.</li>
+      <li>Nie zbieramy danych w przeglądarce.</li>
+      <li>Nie przekazujemy danych podmiotom trzecim</li>
+    </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+function phoneNumber(elementId, number) {
+  var element = document.getElementById(elementId)
+  element.getElementsByTagName('a')[0].href = 'tel: ' + number
+  element.getElementsByTagName("span")[0].innerText = ' ' + number
+}  
+
+function onClickPP(element) {
+  document.getElementById("modal_pp").style.display = "block";
+}
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
+</html>

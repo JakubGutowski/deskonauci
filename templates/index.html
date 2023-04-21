@@ -1,317 +1,233 @@
-{% import "macros.html" as macros %}
-<!DOCTYPE html>
-<html>
-<head>
-<title>{% block title %}{{ config.title }}{% endblock title %}</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{{ get_url(path="main.css") | safe }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
+{% extends "base.html" %}
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar my-secondary-1 w3-card" id="myNavbar">
-  <a href="{{config.base_url}}/#home" class="w3-bar-item w3-button w3-wide my-text-primary-2 my-hover-primary-2"  style="font-size: 1em; font-weight:900">
-    {{ macros::zg_logo() }}
-    {{config.extra.name}}</a>
-    {% if config.extra.menu %}
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small w3-display-bottom ">
-      {% for val in config.extra.menu %}
-      <a href={{config.base_url}}/{{val.path}} class="w3-bar-item w3-button w3-display-bottom my-text-primary-2 my-hover-primary-2" style="height: auto;font-weight:600"><i class="{{val.icon}}"></i> {{val.name}}  </a>
+{% block innerbody %}
+    <!-- Header with full-height image -->
+  <header class="bgimg-1 w3-display-container" id="home">
+    <div class="w3-display-bottomleft w3-text-white w3-left-align" style="padding:40px">
+      
+      <span class="w3-jumbo w3-hide-small my-secondary-1 my-text-primary-2 w3-padding-large"><strong>Deskonauci</strong></span><br>
+      <span class="w3-xxlarge my-secondary-1 my-text-primary-2 w3-hide-large w3-hide-medium"><strong>Deskonauci</strong></span><br>
+      <p><a href="#about" class="w3-button my-white w3-padding-large w3-large w3-margin-top w3-opacity-min w3-hover-opacity-off">Gliwicka Szkóła Deskorolki</a></p>
+    </div>
+  </header>
+
+  {# About section #}
+  {% if section.extra.about %}
+  <div class="w3-container" style="padding:64px 16px" id="about">
+    <h3 class="w3-center">Deskonauci</h3>
+    <p class="w3-center w3-large">Główne cechy</p>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <i class="w3-text-black"></i>
+      {% for val in section.extra.about %}
+      <div class="w3-third">
+        <i class="{{val.icon}} w3-margin-bottom w3-jumbo w3-center my-text-primary-1"></i>
+        <p class="w3-large my-text-secondary-1"><strong>{{val.title}}</strong></p>
+        <p>{{val.description | safe}}</p>
+      </div>
       {% endfor %}
     </div>
-    {% endif %}
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right my-text-primary-2 w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
   </div>
-</div>
+  {% endif %}
 
-{% if config.extra.menu %}
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block my-pirmary-2 w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Zwiń ×</a>
-  {% for val in config.extra.menu %}
-  <a href={{val.path}} onclick="w3_close()" class="w3-bar-item w3-button">{{val.name}}</a>
-  {% endfor %}
-</nav>
-{% endif %}
-
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container" id="home">
-  <div class="w3-display-bottomleft w3-text-white w3-left-align" style="padding:40px">
-    
-    <span class="w3-jumbo w3-hide-small my-secondary-1 my-text-primary-2 w3-padding-large"><strong>Deskonauci</strong></span><br>
-    <span class="w3-xxlarge my-secondary-1 my-text-primary-2 w3-hide-large w3-hide-medium"><strong>Deskonauci</strong></span><br>
-    <p><a href="#about" class="w3-button my-white w3-padding-large w3-large w3-margin-top w3-opacity-min w3-hover-opacity-off">Gliwicka Szkóła Deskorolki</a></p>
-  </div>
-</header>
-
-{# About section #}
-{% if section.extra.about %}
-<div class="w3-container" style="padding:64px 16px" id="about">
-  <h3 class="w3-center">Deskonauci</h3>
-  <p class="w3-center w3-large">Główne cechy</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <i class="w3-text-black"></i>
-    {% for val in section.extra.about %}
-    <div class="w3-third">
-      <i class="{{val.icon}} w3-margin-bottom w3-jumbo w3-center my-text-primary-1"></i>
-      <p class="w3-large my-text-secondary-1"><strong>{{val.title}}</strong></p>
-      <p>{{val.description | safe}}</p>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-
-<!-- News Section -->
-<div class="w3-container my-light-grey" style="padding:64px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      {% set section = get_section(path="news/_index.md") %}
-      <h2>Aktualności</h2>
-      <div class="w3-padding">
-        <h3 ><strong>{{ section.pages.0.title }}</strong></h3>
-        <i>{{ section.pages.0.date }}</i>
-        <p>{{ section.pages.0.content | safe}}</p>
+  <!-- News Section -->
+  <div class="w3-container my-light-grey" style="padding:64px 16px">
+    <div class="w3-row-padding">
+      <div class="w3-col m6">
+        {% set section = get_section(path="news/_index.md") %}
+        <h2>Aktualności</h2>
+        <div class="w3-padding">
+          <h3 ><strong>{{ section.pages.0.title }}</strong></h3>
+          <i>{{ section.pages.0.date }}</i>
+          <p>{{ section.pages.0.content | safe}}</p>
+        </div>
+      </div>
+      <div class="w3-col m6">
+        <img class="w3-image" src="images/raoul-croes.jpg" alt="Buildings" width="700" height="394">
       </div>
     </div>
-    <div class="w3-col m6">
-      <img class="w3-image" src="images/raoul-croes.jpg" alt="Buildings" width="700" height="394">
+  </div>
+
+  <!-- Team Section -->
+  <div class="w3-container my-white" style="padding:64px 16px" id="team">
+    <div class="w3-row-padding">
+      {% for member in section.extra.team %}
+      <div class="w3-col m3">
+        <div class="w3-card w3-round-large w3-marigin" style="margin-right: 0.5em; margin-left: 0.5em;">
+          <img src="images/{{member.path}}" alt="{{member.name}}" style="width:100%; border-top-left-radius: 8px;
+          border-top-right-radius: 8px;">
+          <div class="w3-container">
+            <h3>{{member.name}}</h3>
+            {#<p class="w3-opacity">{{member.title}}</p>#}
+            {#<p>{{member.description}}</p>#}
+            <p><button class="w3-button my-light-grey w3-block" id="{{member.name}}" onclick="phoneNumber('{{member.name}}', '{{member.phone}}')"><a><i class="fa fa-phone"></i><span> Kontakt</span></a></button></p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m9">
+        <h2 class="my-text-primary-1" style="font-weight: 900;">{{ member.name }}</h2>
+        <div class="w3-padding">
+          <p>{{ member.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
-</div>
 
-<!-- Team Section -->
-<div class="w3-container my-white" style="padding:64px 16px" id="team">
-  <div class="w3-row-padding">
-    {% for member in section.extra.team %}
-    <div class="w3-col m3">
-      <div class="w3-card w3-round-large w3-marigin" style="margin-right: 0.5em; margin-left: 0.5em;">
-        <img src="images/{{member.path}}" alt="{{member.name}}" style="width:100%; border-top-left-radius: 8px;
-        border-top-right-radius: 8px;">
-        <div class="w3-container">
-          <h3>{{member.name}}</h3>
-          {#<p class="w3-opacity">{{member.title}}</p>#}
-          {#<p>{{member.description}}</p>#}
-          <p><button class="w3-button my-light-grey w3-block" id="{{member.name}}" onclick="phoneNumber('{{member.name}}', '{{member.phone}}')"><a><i class="fa fa-phone"></i><span> Kontakt</span></a></button></p>
+  <!-- Work Gallery Section -->
+  <div class="w3-container my-grey" style="padding:64px 16px" id="gallery">
+    <h3 class="w3-center">Galeria</h3>
+    <p class="w3-center w3-large">Parę kadrów z naszych zajęć</p>
+    <div class="w3-row-padding" style="margin-top:64px">
+      {% for val in section.extra.photos %}
+      <div class="w3-col l3 m6">
+        <img src="images/{{val.path}}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="{{val.alt}}">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+
+  {% if section.extra.places %}
+  <div class="w3-content w3-display-container" style="max-width:100%" id="where">
+    {% for val in section.extra.places | sort(attribute="weight") %}
+    <div class="w3-container w3-light-gray w3-padding-64 places">
+      <div class="w3-row-padding">
+        <div class="w3-col m6">
+          <h3>Gdzie uczymy:</h3>
+          <p class="w3-padding">Skateparki oraz pumptracki są najlepszym miejscem do nabywania nowych umiejętności w 
+            kontrolowanych warunkach. Naszym celem jest by po nabyciu tych umiejętności wykorzystać je w 
+            przestrzeni miejskiej dojeżdżając do szkoły, pracy czy podczas sesji deskorolkowej.</p>
+          <h4 class="my-text-secondary-1"><strong>{{ val.name }}</strong></h4>
+          <p>{{ val.description }}</p>
+        </div>
+        <div class="w3-col m6">
+          <img src="images/{{ val.path }}" style="width:100%"> 
         </div>
       </div>
     </div>
-    <div class="w3-col m9">
-      <h2 class="my-text-primary-1" style="font-weight: 900;">{{ member.name }}</h2>
-      <div class="w3-padding">
-        <p>{{ member.description }}</p>
+  {% endfor %}
+    <div class="w3-center w3-container w3-section w3-large w3-text-grey w3-display-bottommiddle" style="width:100%; margin-top:3em">
+      <div class="w3-left my-hover-text-primary-1" onclick="plusDivs(-1)">&#10094;</div>
+      <div class="w3-right my-hover-text-primary-1" onclick="plusDivs(1)">&#10095;</div>
+      {% for val in section.extra.places %}
+      <i class="fa fa-map-marker w3-large demo w3-transparent my-hover-text-primary-1 w3-padding" onclick="currentDiv({{loop.index}})"></i>
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("places");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" my-text-secondary-1", "");
+      }
+      x[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " my-text-secondary-1";
+    }
+    </script>
+    {% endif %}
+  <!-- Pricing Section -->
+  <div class="w3-container w3-center my-grey" style="padding:64px 16px" id="pricing">
+    <h3>CENNIK</h3>
+    <p class="w3-large">Rodzaje prowadzonych zajęć</p>
+    <div class="w3-row-padding" style="margin-top:64px">
+      <div class="w3-auto" style="max-width: 600px;">
+        <ul class="w3-ul my-white w3-hover-shadow">
+          <li class="my-secondary-1 my-text-primary-1 w3-xxlarge w3-padding-48" style="font-weight: 800;">Indywidualne</li>
+          <li class="w3-padding-16">Czas: <b>60min</b></li>
+          <li class="w3-padding-16">Indywidualny plan nauczania</li>
+          <li class="w3-padding-16">Wybór terminów</li>
+          <li class="w3-padding-16">
+            <h2 class="w3-wide"><strong>100 zł</strong></h2>
+            <span class="w3-opacity">za godzinę</span>
+          </li>
+          <li class="my-light-grey w3-padding-24">
+            <a href="#team"><button class="w3-button w3-black w3-padding-large">Instruktorzy</button></a>
+          </li>
+        </ul>
       </div>
     </div>
-    {% endfor %}
   </div>
-</div>
 
-<!-- Work Gallery Section -->
-<div class="w3-container my-grey" style="padding:64px 16px" id="gallery">
-  <h3 class="w3-center">Galeria</h3>
-  <p class="w3-center w3-large">Parę kadrów z naszych zajęć</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    {% for val in section.extra.photos %}
-    <div class="w3-col l3 m6">
-      <img src="images/{{val.path}}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="{{val.alt}}">
-    </div>
-    {% endfor %}
-  </div>
-</div>
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
-
-<!-- Skills Section -->
-
-{% if section.extra.places %}
-<div class="w3-content w3-display-container" style="max-width:100%" id="where">
-  {% for val in section.extra.places | sort(attribute="weight") %}
-  <div class="w3-container w3-light-gray w3-padding-64 places">
+  <!-- Contact Section -->
+  <div class="w3-container w3-center w3-whtie" style="padding:64px 16px">
     <div class="w3-row-padding">
       <div class="w3-col m6">
-        <h3>Gdzie uczymy:</h3>
-        <p class="w3-padding">Skateparki oraz pumptracki są najlepszym miejscem do nabywania nowych umiejętności w 
-          kontrolowanych warunkach. Naszym celem jest by po nabyciu tych umiejętności wykorzystać je w 
-          przestrzeni miejskiej dojeżdżając do szkoły, pracy czy podczas sesji deskorolkowej.</p>
-        <h4 class="my-text-secondary-1"><strong>{{ val.name }}</strong></h4>
-        <p>{{ val.description }}</p>
+        {% set section = get_section(path="news/_index.md") %}
+        <h2>CO ZABRAĆ NA ZAJĘCIA:</h2>
+        <div class="w3-padding">
+          <ul class="w3-ul w3-large w3-left-align">
+          {% for item in section.extra.items %}
+            <li class="my-hover-primary-2">{{ item.item }}</li>
+          {% endfor %}
+          </ul>
+          <hr>
+          <p class=" w3-left-align w3-padding-left"><i class="fa fa-asterisk my-text-secondary-1"></i> Nie masz dechy i kasku a chcesz spróbować? Daj nam znać a pożyczymy sprzęt na pierwsze zajęcia.</p>
+          <p class=" w3-left-align w3-padding-left"><i class="fa fa-exclamation my-text-secondary-1 w3-large"></i> Podpisane <a class="my-hover-text-primary-2" href="files/Oswiadczenie-szkolka-deskorolkowa.pdf">oświadczenie</a>.</p>  
+        </div>
       </div>
       <div class="w3-col m6">
-        <img src="images/{{ val.path }}" style="width:100%"> 
+        <img class="w3-image" src="images/bringwith.jpg" alt="Buildings" width="700" height="394">
       </div>
     </div>
   </div>
-{% endfor %}
-  <div class="w3-center w3-container w3-section w3-large w3-text-grey w3-display-bottommiddle" style="width:100%; margin-top:3em">
-    <div class="w3-left my-hover-text-primary-1" onclick="plusDivs(-1)">&#10094;</div>
-    <div class="w3-right my-hover-text-primary-1" onclick="plusDivs(1)">&#10095;</div>
-    {% for val in section.extra.places %}
-    <i class="fa fa-map-marker w3-large demo w3-transparent my-hover-text-primary-1 w3-padding" onclick="currentDiv({{loop.index}})"></i>
-    {% endfor %}
-  </div>
-
-</div>
-
-
-<script>
-  var slideIndex = 1;
-  showDivs(slideIndex);
-  
-  function plusDivs(n) {
-    showDivs(slideIndex += n);
-  }
-  
-  function currentDiv(n) {
-    showDivs(slideIndex = n);
-  }
-  
-  function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("places");
-    var dots = document.getElementsByClassName("demo");
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" my-text-secondary-1", "");
-    }
-    x[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " my-text-secondary-1";
-  }
-  </script>
-  {% endif %}
-<!-- Pricing Section -->
-<div class="w3-container w3-center my-grey" style="padding:64px 16px" id="pricing">
-  <h3>CENNIK</h3>
-  <p class="w3-large">Rodzaje prowadzonych zajęć</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-auto" style="max-width: 600px;">
-      <ul class="w3-ul my-white w3-hover-shadow">
-        <li class="my-secondary-1 my-text-primary-1 w3-xxlarge w3-padding-48" style="font-weight: 800;">Indywidualne</li>
-        <li class="w3-padding-16">Czas: <b>60min</b></li>
-        <li class="w3-padding-16">Indywidualny plan nauczania</li>
-        <li class="w3-padding-16">Wybór terminów</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide"><strong>100 zł</strong></h2>
-          <span class="w3-opacity">za godzinę</span>
-        </li>
-        <li class="my-light-grey w3-padding-24">
-          <a href="#team"><button class="w3-button w3-black w3-padding-large">Instruktorzy</button></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- Contact Section -->
-<div class="w3-container w3-center w3-whtie" style="padding:64px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      {% set section = get_section(path="news/_index.md") %}
-      <h2>CO ZABRAĆ NA ZAJĘCIA:</h2>
-      <div class="w3-padding">
-        <ul class="w3-ul w3-large w3-left-align">
-        {% for item in section.extra.items %}
-          <li class="my-hover-primary-2">{{ item.item }}</li>
-        {% endfor %}
-        </ul>
-        <hr>
-        <p class=" w3-left-align w3-padding-left"><i class="fa fa-asterisk my-text-secondary-1"></i> Nie masz dechy i kasku a chcesz spróbować? Daj nam znać a pożyczymy sprzęt na pierwsze zajęcia.</p>
-        <p class=" w3-left-align w3-padding-left"><i class="fa fa-exclamation my-text-secondary-1 w3-large"></i> Podpisane <a class="my-hover-text-primary-2" href="files/Oswiadczenie-szkolka-deskorolkowa.pdf">oświadczenie</a>.</p>  
+  <div class ="w3-container w3-left-align w3 my-light-grey" style="padding:64px 16px" id="contact">
+    <p class="w3-xxlarge my-text-secondary-1"><strong>Kontakt</strong></p>
+      <div style="margin-top:48px w3-left">
+        <p><i class="fa fa-map-marker my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"></i><strong> Gliwice</strong></p>
+        <p><a href="tel:+48507294683"><i class="fa fa-phone my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"></i><strong> Tel: +48 507294683</strong></a></p>
+        <p><a href="mailto:deskonauci@gmail.com"><i class="fa fa-envelope my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"> </i><strong> Email: deskonauci@gmail.com</strong></a></p>
+        <br>
       </div>
     </div>
-    <div class="w3-col m6">
-      <img class="w3-image" src="images/bringwith.jpg" alt="Buildings" width="700" height="394">
-    </div>
-  </div>
-</div>
-<div class ="w3-container w3-left-align w3 my-light-grey" style="padding:64px 16px" id="contact">
-  <p class="w3-xxlarge my-text-secondary-1"><strong>Kontakt</strong></p>
-    <div style="margin-top:48px w3-left">
-      <p><i class="fa fa-map-marker my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"></i><strong> Gliwice</strong></p>
-      <p><a href="tel:+48507294683"><i class="fa fa-phone my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"></i><strong> Tel: +48 507294683</strong></a></p>
-      <p><a href="mailto:deskonauci@gmail.com"><i class="fa fa-envelope my-text-primary-1 fa-fw w3-xxlarge w3-margin-right"> </i><strong> Email: deskonauci@gmail.com</strong></a></p>
-      <br>
-    </div>
-  </div>
 
-<!-- Footer -->
-<footer class="w3-center my-secondary-1 w3-padding-64 bg_zglogo">
-  <a href="#home" class="w3-button my-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Do początku</a>
-  <p>Powered by 
-    <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-red">w3.css</a> and 
-    <a href="https://www.getzola.org" title="zola" target="_blank" class="w3-hover-text-red">zola</a>
-  </p>
-  <p><i class="fa fa-terminal"></i> <a href="https://jakubgutowski.gitlab.io/site/" title="Jakub Gutowski" target="_blank" class="w3-hover-text-red">Jakub Gutowski</a></p>
-  <p><a onclick="onClickPP(this)" title="polityka prywatności" target="_blank" class="w3-small w3-text-grey w3-opacity w3-hover-text-red">polityka prywatności</a></p>
-
-</footer>
-
-<div id="modal_pp" class="w3-modal w3-black " onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64 ">
-    <h3 class="w3-xxlarge w3-left-align">Polityka Prywatności</h3>
-    <p class="w3-left-align w3-large">TLDR:</p>
-    <ul class="w3-left-align">
-      Odwiedzający wiedz że:
-      <li>Nie zbieramy żadnych danych osobowych.</li>
-      <li>Nie zbieramy danych w przeglądarce.</li>
-      <li>Nie przekazujemy danych podmiotom trzecim</li>
-    </li>
-    </ul>
-  </div>
-</div>
+{% endblock innerbody %}
 
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-function phoneNumber(elementId, number) {
-  var element = document.getElementById(elementId)
-  element.getElementsByTagName('a')[0].href = 'tel: ' + number
-  element.getElementsByTagName("span")[0].innerText = ' ' + number
-}  
-
-function onClickPP(element) {
-  document.getElementById("modal_pp").style.display = "block";
-}
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
+  // Modal Image Gallery
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
   }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
+  
+  function phoneNumber(elementId, number) {
+    var element = document.getElementById(elementId)
+    element.getElementsByTagName('a')[0].href = 'tel: ' + number
+    element.getElementsByTagName("span")[0].innerText = ' ' + number
+  }  
+  
+  function onClickPP(element) {
+    document.getElementById("modal_pp").style.display = "block";
+  }
 </script>
-
-</body>
-</html>
